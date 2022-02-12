@@ -20,11 +20,9 @@
             else {
                 //Work Flow - spliting with delmiter ',' -> applying array filter with builtin -
                 // function `Boolean` to remove empty string
-                console.log('here');
                 $scope.noDataMessage = "";
                 var splitLunchMenu = $scope.lunchMenu.split(",").filter(Boolean);
                 if (splitLunchMenu.length <= 3) {
-                    console.log('here again');
                     $scope.feedBackMessage = "Enjoy!";
                 }
                 else
