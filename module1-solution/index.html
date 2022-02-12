@@ -6,24 +6,30 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .noDataMsg { color: red; border: 1px solid red; width: 35%; padding: 2%; }
+      .feedBackMsg { color: green; border: 1px solid green; width: 20%; padding: 2%; }
     </style>
   </head>
 <body>
-   <div class="container">
+   <div class="container" ng-app="LunchCheck" ng-controller="LunchCheckController"> 
      <h1>Lunch Checker</h1>
 
-         <div class="form-group">
+         <div class="form-group" >
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control"
+             ng-model="lunchMenu"> <!--Do NOT consider an empty item i.e `, ,`-->
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button  ng-click="check()">Check If Too Much</button>
          </div>
          <div class="form-group message">
            <!-- Your message can go here. -->
+           <p ng-if="noDataMessage" class="noDataMsg">{{noDataMessage}}</p>
+           <p ng-if="feedBackMessage" class="feedBackMsg">{{feedBackMessage}}</p>
          </div>
    </div>
-
+   <script src="angular.min.js"></script>
+   <script src="app.js"></script>
 </body>
 </html>
