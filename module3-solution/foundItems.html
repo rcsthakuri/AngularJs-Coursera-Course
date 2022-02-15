@@ -1,0 +1,9 @@
+<ol>
+    <br>
+    <br>
+    <br>
+    <li ng-repeat="item in NarrowDownCtrl.foundItems">
+        {{(item.name + ", " + item.short_name + ", " + item.description)}}
+        <button  ng-click="NarrowDownCtrl.removeItem($index)">{{console.log(this)}}Don't want this one!</button>
+    </li>
+</ol>
