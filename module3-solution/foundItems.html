@@ -1,9 +1,21 @@
-<ol>
-    <br>
-    <br>
-    <br>
-    <li ng-repeat="item in NarrowDownCtrl.foundItems">
-        {{(item.name + ", " + item.short_name + ", " + item.description)}}
-        <button  ng-click="NarrowDownCtrl.removeItem($index)">{{console.log(this)}}Don't want this one!</button>
-    </li>
-</ol>
+<div class="containter">
+    <div ng-if="NarrowDownCtrl.foundItems.length" class="row">
+        <div class="col-sm-3"><h2>Name</h2></div>
+        <div class="col-sm-3"><h2>Short Name</h2></div>
+        <div class="col-sm-3"><h2>Description</h2></div>
+        <div class="col-sm-3"><h2>Remove Item</h2></div>
+    </div>
+    <ul class="list-unstyled">
+        <li style="margin-bottom: 2%;" ng-repeat="item in NarrowDownCtrl.foundItems">
+            <!-- {{(item.name + ", " + item.short_name + ", " + item.description)}} -->
+            <div class="row mx-auto">
+                <div class="col-sm-3"> {{ ($index+1) + ". " + item.name }} </div>
+                <div class="col-sm-3"> {{ item.short_name }} </div>
+                <div class="col-sm-3"> {{ item.description }} </div>
+                <div class="col-sm-3">
+                    <button ng-click="NarrowDownCtrl.removeItem($index)">{{console.log(this)}}Don't want this one!</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -10,28 +10,22 @@
         NarrowDownCtrl = this;
         NarrowDownCtrl.foundItems = [];
         NarrowDownCtrl.showNoFound = false;
-        // NarrowDownCtrl.wait = MenuSearchService.wait
-        console.log(NarrowDownCtrl.wait);
-        NarrowDownCtrl.findItems = function () {
-            $timeout(
-                function () {
+        NarrowDownCtrl.findItems = async function () {
                 if(!NarrowDownCtrl.SearchTerm) {
                     NarrowDownCtrl.foundItems = []
-                    return 
+                    NarrowDownCtrl.showNoFound = true;
+                    return;
                 }
-                NarrowDownCtrl.foundItems = MenuSearchService.getMatchedMenuItems(NarrowDownCtrl.SearchTerm);
+                NarrowDownCtrl.foundItems = await MenuSearchService.getMatchedMenuItems(NarrowDownCtrl.SearchTerm);
                 console.log(NarrowDownCtrl.foundItems, NarrowDownCtrl.SearchTerm);
-             }, 1000);
-             NarrowDownCtrl.checkResult();
+             
+                NarrowDownCtrl.checkResult();
         }
 
         NarrowDownCtrl.checkResult = function () {
-            $timeout(
-                function() {
-                    if (!NarrowDownCtrl.foundItems.length) {
-                         NarrowDownCtrl.showNoFound = true
-                    }
-             }, 6000);
+            if (!NarrowDownCtrl.foundItems.length) {
+                NarrowDownCtrl.showNoFound = true
+            }
         }
         
         NarrowDownCtrl.removeItem = function (index) {
@@ -51,7 +45,6 @@
                 url:  ("https://davids-restaurant.herokuapp.com/menu_items.json")
             });
             response.then(function (result) {
-                console.log(result.data.menu_items);
                 for (let i = 0; i < result.data.menu_items.length; i++)
                 {
                     description = result.data.menu_items[i].description.toLowerCase();
