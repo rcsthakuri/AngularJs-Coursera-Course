@@ -5,27 +5,34 @@
     .service("MenuSearchService", MenuSearchService)
     .directive("foundItems", FoundItems);
 
-    NarrowDownController.$inject = ["MenuSearchService", "$timeout"];
-    function NarrowDownController(MenuSearchService, $timeout) {
+    NarrowDownController.$inject = ["MenuSearchService", "$scope"];
+    function NarrowDownController(MenuSearchService, $scope) {
         NarrowDownCtrl = this;
         NarrowDownCtrl.foundItems = [];
         NarrowDownCtrl.showNoFound = false;
         NarrowDownCtrl.findItems = async function () {
+                NarrowDownCtrl.showNoFound = false;
                 if(!NarrowDownCtrl.SearchTerm) {
                     NarrowDownCtrl.foundItems = []
                     NarrowDownCtrl.showNoFound = true;
                     return;
                 }
+                
                 NarrowDownCtrl.foundItems = await MenuSearchService.getMatchedMenuItems(NarrowDownCtrl.SearchTerm);
-                console.log(NarrowDownCtrl.foundItems, NarrowDownCtrl.SearchTerm);
-             
+                $scope.$apply();
                 NarrowDownCtrl.checkResult();
         }
 
         NarrowDownCtrl.checkResult = function () {
             if (!NarrowDownCtrl.foundItems.length) {
-                NarrowDownCtrl.showNoFound = true
+                NarrowDownCtrl.showNoFound = true;
+                
             }
+            else
+            {
+                NarrowDownCtrl.showNoFound = false;
+            }
+            $scope.$apply();
         }
         
         NarrowDownCtrl.removeItem = function (index) {
@@ -37,14 +44,13 @@
     function MenuSearchService($http) {
         var service = this;
         var description;
-        service.wait = {status: true};
-        service.getMatchedMenuItems = function(searchTerm) {
+        service.getMatchedMenuItems = async function(searchTerm) {
             service.foundItems = [];
             var response = $http({
                 method: "GET",
                 url:  ("https://davids-restaurant.herokuapp.com/menu_items.json")
             });
-            response.then(function (result) {
+            await response.then(function (result) {
                 for (let i = 0; i < result.data.menu_items.length; i++)
                 {
                     description = result.data.menu_items[i].description.toLowerCase();
@@ -54,7 +60,6 @@
                 }
             }
             );
-            service.wait = true;
             return service.foundItems;
         };
     }
