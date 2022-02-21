@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 4 Solution</title>
+        <!-- LIB -->
+        <script src="src/angular.min.js"></script>
+        <script src="src/angular-ui-router.min.js"></script>
+        
+
+        <!-- Module -->
+        <script src="src/menuapp.module.js"></script>
+        <script src="src/data.module.js"></script>
+        
+        <!-- Routing -->
+        <script src="src/routes.js"></script>
+
+        <!-- Component -->
+        <script src="src/categories.component.js"></script>
+        <script src="src/items.component.js"></script>
+        <script src="src/menudata.service.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body ng-app="MenuApp">
+        <a ui-sref="categories">Go to categories</a>
+        <!-- <ui-view></ui-view> -->
+        <ui-view></ui-view>
+    </body>
+    
+</html>

@@ -1,0 +1,10 @@
+<div>
+    <h2>Catergory on Menu</h2>
+    <ul >
+        <li ng-repeat="item in $ctrl.category" 
+            ui-sref="categories.item({itemId: $index})">
+            {{item.name}}</li>
+    </ul>
+    <ui-view></ui-view>    
+</div>
+<a ui-sref="home">Go to home</a>
