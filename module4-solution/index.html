@@ -22,9 +22,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body ng-app="MenuApp">
-        <a ui-sref="categories">Go to categories</a>
-        <!-- <ui-view></ui-view> -->
-        <ui-view></ui-view>
+        <div class="container">
+            <a class="d-inline p-2 bg-primary text-white"ui-sref="categories">Go to categories</a> 
+            <!-- <ui-view></ui-view> -->
+            <ui-view></ui-view>
+        </div>
     </body>
     
 </html>

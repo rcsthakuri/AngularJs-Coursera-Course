@@ -1,10 +1,12 @@
-<div>
-    <h2>Catergory on Menu</h2>
-    <ul >
-        <li ng-repeat="item in $ctrl.category" 
-            ui-sref="categories.item({itemId: $index})">
-            {{item.name}}</li>
-    </ul>
-    <ui-view></ui-view>    
+<a class="d-inline p-2 bg-dark text-white" ui-sref="home">Go to home</a>
+<div class="row">
+    <div class="col-6">
+        <h2>Catergory on Menu</h2>
+        <ul >
+            <li ng-repeat="item in $ctrl.category" 
+                ui-sref="categories.item({itemId: $index})">
+                <a href="#">{{item.name}}</a></li>
+        </ul>
+    </div>
+    <div class="col-6"><ui-view></ui-view></div>
 </div>
-<a ui-sref="home">Go to home</a>
