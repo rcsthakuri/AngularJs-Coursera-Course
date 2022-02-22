@@ -1,4 +1,4 @@
-# Module 2 Assignment Solution
+# Module 3 Assignment Solution
 This directory includes the files and other subdirectories  which 
 in together server as solution to assignment. `App.js` includes 
 AngularJs code for solution and `index.html` integrates it with
