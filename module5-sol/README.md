@@ -1,9 +1,9 @@
-# Restaurant
+# Module 2 Assignment Solution
+This directory includes the files and other subdirectories  which 
+in together server as solution to assignment. `index.html` integrates all of it with to get desired result.
 
-Restaurant front-end implementation in AngularJS for David Chu's China Bistro.
+### Base code is forked from - https://github.com/jhu-ep-coursera/restaurant-server
 
-Enroll in the [complete free course on AngularJS][aeac87f1]
-  [aeac87f1]: https://www.coursera.org/learn/single-page-web-apps-with-angularjs "AngularJS course"
+## Github Pages: [assignment 2 solution ](https://rcsthakuri.github.io/AngularJs-Coursera-Course/module5-solution/index.html)
 
-  [Single Page Web Applications with AngularJS][39804538]
-  [39804538]: https://www.coursera.org/learn/single-page-web-apps-with-angularjs "Enroll in the course on AngluarJS"
+
