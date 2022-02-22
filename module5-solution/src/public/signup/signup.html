@@ -18,15 +18,18 @@
     <fieldset>
         <legend>Registration</legend>
     <form name="regForm" novalidate >
-            <input placeholder="Enter first name" type="text" name="firstName"  required min-length="4" ng-model="ctrl.reg.firstName"/>
+            <input placeholder="Enter first name" type="text" name="firstName"  required min-length="2" ng-model="ctrl.reg.firstName"/>
             <span ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">Enter the first name</span>
             </span>
             <br>
-            <input placeholder="Enter last name" type="text" name="lastName" required min-length="4" ng-model="ctrl.reg.lastName"/>
+            <input placeholder="Enter last name" type="text" name="lastName" required min-length="2" ng-model="ctrl.reg.lastName"/>
             <span ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">Enter the last name</span>
             <br>
             <input placeholder="username@domain" type="email" name="email" required ng-model="ctrl.reg.email"/>
-            <span ng-if="regForm.email.$invalid && regForm.email.$touched && regFrom.email.$error.required">Enter the valid email address: username@domain fomrat</span>
+            <span ng-if="(regForm.email.$invalid || regFrom.email.$error.required ) && regForm.email.$touched">Enter the valid email address: username@domain fomrat</span>
+            <br>
+            <input placeholder="###-###-####" type="text" name="phone" required ng-model="ctrl.reg.phone" pattern="(\d{3})-(\d{3})-(\d{4})"/>
+            <span ng-if="(regForm.phone.$invalid || regFrom.phone.$error.required) && regForm.phone.$touched">Enter the valid phone number: 0 fomrat ###-###-####</span>
             <br>
             <input placeholder="Menu short name" type="text"  required ng-model="ctrl.reg.menuNum" />
             <br>

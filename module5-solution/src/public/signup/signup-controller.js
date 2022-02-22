@@ -25,6 +25,7 @@
                 firstName : '',
                 lastName: '',
                 email: '',
+                phone: '',
                 menuNum: ''
                 
             };
@@ -39,7 +40,6 @@
                 $ctrl.clearForm();
                 return;
             }
-            console.log(menu_items);
             UserPreferenceService.preference = $ctrl.reg;
             UserPreferenceService.preference.menu_items = menu_items;
             $ctrl.test = UserPreferenceService.preference;
