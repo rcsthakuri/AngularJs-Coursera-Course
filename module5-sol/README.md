@@ -4,6 +4,6 @@ in together server as solution to assignment. `index.html` integrates all of it 
 
 ### Base code is forked from - https://github.com/jhu-ep-coursera/restaurant-server
 
-## Github Pages: [assignment 2 solution ](https://rcsthakuri.github.io/AngularJs-Coursera-Course/module5-solution/index.html)
+## Github Pages: [assignment 5 solution ](https://rcsthakuri.github.io/AngularJs-Coursera-Course/module5-solution/index.html)
 
 
