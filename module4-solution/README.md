@@ -1,4 +1,4 @@
-# Module 2 Assignment Solution
+# Module 4 Assignment Solution
 This directory includes the files and other subdirectories  which 
 in together server as solution to assignment. `index.html` integrates all of it with to get desired result.
 
