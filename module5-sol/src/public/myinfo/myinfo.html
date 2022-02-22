@@ -1,0 +1,21 @@
+<div class="container" ng-controller="MyInfoController as ctrl">
+    <h2>Registered Information</h2>
+    <div ng-if="ctrl.preference">
+    
+        Name : {{ctrl.preference.firstName + " " + ctrl.preference.lastName}}
+        <br>
+        Emaill address: {{ctrl.preference.email}}
+
+        <h3>Your favourite menu </h3>
+        <div div class="col-md-3 col-sm-4 col-xs-6 col-xxs-12">
+            <h3>{{ctrl.preference.menu_items.name}}</h3>
+            <div class="category-tile">
+                <img width="200" height="200" ng-src="images/menu/{{ctrl.preference.menu_items.category_short_name}}/{{ctrl.preference.menu_items.short_name}}.jpg" alt="{{ctrl.preference.menu_items.name}}">
+            </div>
+            <span>{{ctrl.preference.menu_items.description}}</span>
+        </div>
+    </div>
+    <span ng-if="!ctrl.preference">
+        Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+    </span>
+</div>

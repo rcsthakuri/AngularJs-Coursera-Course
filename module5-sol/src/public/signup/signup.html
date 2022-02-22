@@ -1,0 +1,51 @@
+<style>
+    form, legend {
+        color: white;
+        border-color: white;
+    }
+    input {
+        color: black;
+        margin: 5px;
+    }
+    button {
+        background: burlywood;
+        color: purple;
+    }
+
+</style>
+<div class="container" ng-controller="SignUpController as ctrl">
+    <h2 id="menu-categories-title" class="text-center">Sign Up</h2>
+    <fieldset>
+        <legend>Registration</legend>
+    <form name="regForm" novalidate >
+            <input placeholder="Enter first name" type="text" name="firstName"  required min-length="4" ng-model="ctrl.reg.firstName"/>
+            <span ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">Enter the first name</span>
+            </span>
+            <br>
+            <input placeholder="Enter last name" type="text" name="lastName" required min-length="4" ng-model="ctrl.reg.lastName"/>
+            <span ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">Enter the last name</span>
+            <br>
+            <input placeholder="username@domain" type="email" name="email" required ng-model="ctrl.reg.email"/>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched && regFrom.email.$error.required">Enter the valid email address: username@domain fomrat</span>
+            <br>
+            <input placeholder="Menu short name" type="text"  required ng-model="ctrl.reg.menuNum" />
+            <br>
+            &nbsp<button ng-disabled="regForm.$invalid" ng-click="ctrl.submit();">Submit</button>
+    </form>
+    </fieldset>
+    <div ng-if="ctrl.completed">
+        <!-- User Name : {{ctrl.test.firstName + " " + ctrl.test.lastName}}
+        <br>
+        Email : {{ctrl.test.email}}
+        <br>
+        Menu : {{ctrl.test.menuNum}} -->
+        <br>
+        Your information has been saved. 
+    </div>
+    <div ng-if="ctrl.noSuchMenu">
+        <br>
+        {{ctrl.noSuchMenu}}
+    </div>
+  
+    
+  </div>
